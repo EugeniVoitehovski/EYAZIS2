@@ -64,6 +64,17 @@ def choose_method():
         ownMethod()
 
 
+def expectation():
+     while True:
+         act = int(input('Желаете продолжить:\n'
+                           '1 - Да\n'
+                           '2 - Нет\n'))
+         if act == 1:
+             choose_method()
+         elif act == 2:
+             print('До новых встреч!')
+             break;
+
 def frequencyWordMethod():
     print('В разработке')
 
@@ -73,9 +84,9 @@ def shortWordMethod():
 
 
 def ownMethod():
-    print(detect(str(readFromFileEnglishText())))
-    print(detect(str(readFromFileRussianText())))
+    print('Результат идентификации текста: ', detect(str(readFromFileEnglishText())))
+    print('Результат идентификации текста: ', detect(str(readFromFileRussianText())))
 
 
 choose_method()
-
+expectation()
