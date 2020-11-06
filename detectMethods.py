@@ -1,6 +1,8 @@
 from langdetect import detect
+
+from saveInFile import SaveFile
 from printDocuments import printExpectation
-from readFromFile import readFromFileEnglishText, readFromFileRussianText
+from readFromFile import readFromFile
 
 
 def frequencyWordMethod():
@@ -14,6 +16,7 @@ def shortWordMethod():
 
 
 def ownMethod():
-    print('Результат идентификации текста: ', detect(str(readFromFileEnglishText())))
-    print('Результат идентификации текста: ', detect(str(readFromFileRussianText())))
+    result = ('Результат идентификации текста: ', detect(str(readFromFile())))
+    SaveFile(result,1)
     printExpectation()
+
