@@ -1,12 +1,13 @@
 from detectMethods import frequencyWordMethod, shortWordMethod, ownMethod
 from printDocuments import printRusDocument, printEngDocument
-
+import sys
 
 def choose_method():
     method = int(input('Выберите метод из предложенных:\n'
                        '1 - Метод частотных слов\n'
                        '2 - Метод коротких слов\n'
-                       '3 - Собственный метод\n'))
+                       '3 - Собственный метод\n'
+                       '4 - Выход\n'))
     if method == 1:
         print('Метод частотных слов')
         frequencyWordMethod()
@@ -16,6 +17,9 @@ def choose_method():
     elif method == 3:
         print('Собственный метод')
         ownMethod()
+    elif method == 4:
+        print('До новых встреч!')
+        sys.exit()
 
 
 def expectation():
