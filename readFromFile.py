@@ -10,6 +10,7 @@ def LoadFile():
     root = Tk()
     root.withdraw()
     root.update()
+    root.call('wm', 'attributes', '.', '-topmost', True)
     file = filedialog.askopenfilename()
     root.update()
     root.quit()
