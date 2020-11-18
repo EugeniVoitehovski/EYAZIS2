@@ -3,17 +3,15 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 import io
-from tkinter import filedialog
-from tkinter import *
+import os
+
 
 def LoadFile():
-    root = Tk()
-    root.withdraw()
-    root.update()
-    root.call('wm', 'attributes', '.', '-topmost', True)
-    file = filedialog.askopenfilename()
-    root.update()
-    root.quit()
+    dirName = os.path.abspath("texts/")
+    files = os.listdir("texts/")
+    string = ''.join(files)
+    file = (dirName + '/' + string)
+    #print(file)
     return file
 
 
@@ -35,4 +33,4 @@ def readFromFile():
         # print(text)
         return text
     except IOError:
-        print("No file")
+        print("Отстутствует файл!")

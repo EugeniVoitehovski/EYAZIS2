@@ -4,8 +4,6 @@ def printExpectation():
                            '2 - Нет\n'))
     if printAct == 1:
         chooseLanguage()
-    elif printAct == 2:
-        print('')
 
 
 def chooseLanguage():

@@ -15,5 +15,3 @@ def SaveFile(result,type):
             file = open("results/resultOfFrequencyWordMethod.txt", "w")
             file.write(str(result))
             file.close()
-    elif actSave == 2:
-        print('')

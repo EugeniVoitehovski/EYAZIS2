@@ -2,7 +2,8 @@ import pymorphy2
 from langdetect import detect
 
 from printDocuments import printExpectation
-from readFromFile import readFromFile, re
+from readFromFile import readFromFile
+import re
 from saveInFile import SaveFile
 
 
@@ -25,11 +26,15 @@ def frequencyWordMethod():
             i = i + 1
             numberOfEnglishMatches = numberOfEnglishMatches + i
     if numberOfEnglishMatches > numberOfRussianMatches:
-        print('en')
+        result = 'Результат идентификации текста: en'
+        print(result)
     elif numberOfEnglishMatches < numberOfRussianMatches:
-        print('ru')
+        result = 'Результат идентификации текста: ru'
+        print(result)
     else:
-        print('Не удалось распознать язык')
+        result = 'Не удалось распознать язык'
+        print(result)
+    SaveFile(result, 3)
     printExpectation()
 
 
@@ -119,17 +124,19 @@ def shortWordMethod():
     # знаки инвертированы, т.к. в ходе вычисления вероятности языка происходит умножение дроби на дробь и результат
     # стремится к 0
     if eng_probability < ru_probability:
-        print('en')
+        result = 'Результат идентификации текста: en'
+        print(result)
     elif eng_probability > ru_probability:
-        print('ru')
+        result = 'Результат идентификации текста: ru'
+        print(result)
     else:
         print('Не удалось распознать язык')
-    printExpectation()
+    SaveFile(result, 2)
     printExpectation()
 
 
 def ownMethod():
-    result = ('Результат идентификации текста: ', detect(str(readFromFile())))
+    result = 'Результат идентификации текста: ', detect(str(readFromFile()))
     print(result)
     SaveFile(result, 1)
     printExpectation()
